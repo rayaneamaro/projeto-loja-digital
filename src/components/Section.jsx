@@ -1,25 +1,24 @@
-// src/components/Section.tsx
-import React from 'react';
+    import React from 'react';
 
-interface SectionProps {
-    title: string;
-    titleAlign?: 'left' | 'center';
-    link?: { text: string; href: string };
-    children: React.ReactNode;
-}
+    const Section = ({ title, titleAlign = 'left', link, children }) => {
+      return (
+        <section className="mb-5">
+          <div className="d-flex justify-content-between align-items-center">
+            {/* Título da seção */}
+            <h2 style={{ textAlign: titleAlign, color: '#474747' }}>{title}</h2>
 
-const Section: React.FC<SectionProps> = ({ title, titleAlign = 'left', link, children }) => (
-    <section style={{ marginBottom: '2rem' }}>
-        <div className="d-flex justify-content-between align-items-center">
-            <h2 style={{ textAlign: titleAlign }}>{title}</h2>
+            {/* Link (se houver) */}
             {link && (
-                <a href={link.href} style={{ textDecoration: 'none', color: '#C92071' }}>
-                    {link.text}
-                </a>
+              <a href={link.href} style={{ color: '#C92071', fontSize: '18px' }}>
+                {link.text}
+              </a>
             )}
-        </div>
-        <div>{children}</div>
-    </section>
-);
+          </div>
 
-export default Section;
+          {/* Conteúdo da seção */}
+          <div className="mt-3">{children}</div>
+        </section>
+      );
+    };
+
+    export default Section;
