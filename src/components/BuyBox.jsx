@@ -1,48 +1,43 @@
-// src/components/BuyBox.tsx
-import React from 'react';
+    import React from 'react';
+    import { ReactComponent as StarIcon } from '../assets/star-icon.svg';
 
-interface BuyBoxProps {
-    name: string;
-    reference: string;
-    stars: number;
-    rating: number;
-    price: number;
-    priceDiscount?: number;
-    description: string;
-    children?: React.ReactNode;
-}
+    const BuyBox = ({ name, reference, stars, rating, price, priceDiscount, description, children }) => {
+      return (
+        <div style={{ width: '400px', padding: '20px', border: '1px solid #CCCCCC', borderRadius: '4px' }}>
+          <h1 style={{ fontSize: '32px', color: '#474747' }}>{name}</h1>
+          <p style={{ fontSize: '12px', color: '#8F8F8F' }}>Referência: {reference}</p>
 
-const BuyBox: React.FC<BuyBoxProps> = ({
-    name,
-    reference,
-    stars,
-    rating,
-    price,
-    priceDiscount,
-    description,
-    children,
-}) => (
-    <div className="card p-3">
-        <h2>{name}</h2>
-        <p>Ref: {reference}</p>
-        <div>
-            <span className="badge bg-warning">{stars} ★</span>
-            <span className="ms-2 text-muted">({rating} avaliações)</span>
+          <div className="d-flex align-items-center gap-2 my-2">
+            <span
+              style={{
+                fontSize: '14px',
+                backgroundColor: '#F6AA1C',
+                color: '#FFFFFF',
+                borderRadius: '4px',
+                padding: '2px 6px',
+              }}
+            >
+              {stars} <StarIcon />
+            </span>
+            <span style={{ fontSize: '14px', color: '#CCCCCC' }}>{rating} avaliações</span>
+          </div>
+
+          <p style={{ fontSize: '16px', color: '#CCCCCC', textDecoration: priceDiscount ? 'line-through' : 'none' }}>
+            R$ {price.toFixed(2)}
+          </p>
+          {priceDiscount && (
+            <p style={{ fontSize: '32px', color: '#474747', marginTop: '-10px' }}>R$ {priceDiscount.toFixed(2)}</p>
+          )}
+
+          <p style={{ fontSize: '14px', color: '#474747', marginTop: '10px' }}>{description}</p>
+
+          {children}
+
+          <button className="btn btn-warning mt-4 text-white" style={{ fontSize: '16px' }}>
+            Comprar
+          </button>
         </div>
-        <div>
-            {priceDiscount ? (
-                <>
-                    <span style={{ textDecoration: 'line-through' }}>R$ {price.toFixed(2)}</span>
-                    <span className="text-danger ms-2">R$ {priceDiscount.toFixed(2)}</span>
-                </>
-            ) : (
-                <span>R$ {price.toFixed(2)}</span>
-            )}
-        </div>
-        <p>{description}</p>
-        {children}
-        <button className="btn btn-success">Comprar</button>
-    </div>
-);
+      );
+    };
 
-export default BuyBox;
+    export default BuyBox;
