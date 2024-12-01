@@ -1,16 +1,17 @@
 import React from 'react';
-import Header from '../components/Header'; 
-import Footer from '../components/Footer';
+import Header from '../components/Header';  // Caminho para o Header
+import Footer from '../components/Footer';  // Caminho para o Footer
 
-// Componente de Layout
-const Layout: React.FC = ({ children }) => {
+const Layout = ({ children }) => {
   return (
-    <div>
+    <div className="container-fluid">
       {/* Componente do cabeçalho */}
       <Header />
 
       {/* Conteúdo dinâmico das páginas */}
-      <main>{children}</main>
+      <main className="my-5">
+        {children}
+      </main>
 
       {/* Componente do rodapé */}
       <Footer />
