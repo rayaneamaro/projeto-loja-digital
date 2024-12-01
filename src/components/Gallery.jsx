@@ -1,83 +1,84 @@
-// src/components/Gallery.tsx
-import React, { useState } from 'react';
+        import React, { useState } from 'react';
+        import ArrowRightIcon from '../assets/arrow-right.svg';
+        import ArrowLeftIcon from '../assets/arrow-left.svg';
 
-interface GalleryProps {
-    images: { src: string }[];
-    width?: string;
-    height?: string;
-    radius?: string;
-    showThumbs?: boolean;
-}
+        const Gallery = ({ images, width = '600px', height = '400px', radius = '10px', showThumbs = false }) => {
+          const [currentIndex, setCurrentIndex] = useState(0);
 
-const Gallery: React.FC<GalleryProps> = ({ images, width = '700px', height = '570px', radius = '4px', showThumbs = false }) => {
-    const [currentImage, setCurrentImage] = useState(0);
+          const goToNextImage = () => {
+            if (currentIndex < images.length - 1) {
+              setCurrentIndex(currentIndex + 1);
+            }
+          };
 
-    const nextImage = () => setCurrentImage((prev) => (prev + 1) % images.length);
-    const prevImage = () => setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
+          const goToPreviousImage = () => {
+            if (currentIndex > 0) {
+              setCurrentIndex(currentIndex - 1);
+            }
+          };
 
-    return (
-        <div style={{ width, height, position: 'relative' }}>
-            <img src={images[currentImage].src} alt={`Image ${currentImage + 1}`} style={{ width: '100%', height: '100%', borderRadius: radius }} />
-            <button onClick={prevImage} style={styles.arrowLeft}>◀</button>
-            <button onClick={nextImage} style={styles.arrowRight}>▶</button>
-            {showThumbs && (
-                <div style={styles.thumbnailContainer}>
-                    {images.map((image, index) => (
-                        <img
-                            key={index}
-                            src={image.src}
-                            alt={`Thumbnail ${index + 1}`}
-                            onClick={() => setCurrentImage(index)}
-                            style={{
-                                ...styles.thumbnail,
-                                borderRadius: radius,
-                                border: currentImage === index ? '2px solid #C92071' : 'none',
-                            }}
-                        />
-                    ))}
+          const handleThumbnailClick = (index) => {
+            setCurrentIndex(index);
+          };
+
+          return (
+            <div className="gallery-container" style={{ width, height, position: 'relative' }}>
+              {/* Imagem em destaque */}
+              <img
+                src={images[currentIndex].src}
+                alt={`Image ${currentIndex + 1}`}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  borderRadius: radius,
+                  objectFit: 'cover',
+                }}
+              />
+
+              {/* Setas de navegação */}
+              <button onClick={goToPreviousImage} disabled={currentIndex === 0} style={arrowStyles('left')}>
+                <ArrowLeftIcon width={30} height={30} />
+              </button>
+              <button onClick={goToNextImage} disabled={currentIndex === images.length - 1} style={arrowStyles('right')}>
+                <ArrowRightIcon width={30} height={30} />
+              </button>
+
+              {/* Thumbnails */}
+              {showThumbs && (
+                <div className="thumbnails" style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+                  {images.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image.src}
+                      alt={`Thumbnail ${index + 1}`}
+                      style={{
+                        width: '117px',
+                        height: '95px',
+                        borderRadius: radius,
+                        cursor: 'pointer',
+                        border: currentIndex === index ? '2px solid #C92071' : 'none',
+                        margin: '0 5px',
+                      }}
+                      onClick={() => handleThumbnailClick(index)}
+                    />
+                  ))}
                 </div>
-            )}
-        </div>
-    );
-};
+              )}
+            </div>
+          );
 
-const styles = {
-    arrowLeft: {
-        position: 'absolute',
-        top: '50%',
-        left: '10px',
-        transform: 'translateY(-50%)',
-        background: 'rgba(0, 0, 0, 0.5)',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '50%',
-        padding: '10px',
-        cursor: 'pointer',
-    },
-    arrowRight: {
-        position: 'absolute',
-        top: '50%',
-        right: '10px',
-        transform: 'translateY(-50%)',
-        background: 'rgba(0, 0, 0, 0.5)',
-        color: '#fff',
-        border: 'none',
-        borderRadius: '50%',
-        padding: '10px',
-        cursor: 'pointer',
-    },
-    thumbnailContainer: {
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '5px',
-        marginTop: '10px',
-    },
-    thumbnail: {
-        width: '50px',
-        height: '50px',
-        cursor: 'pointer',
-        objectFit: 'cover',
-    },
-};
+          function arrowStyles(position) {
+            return {
+              position: 'absolute',
+              top: '50%',
+              [position]: '10px',
+              transform: 'translateY(-50%)',
+              background: 'transparent',
+              border: 'none',
+              cursor: 'pointer',
+              zIndex: 2,
+            };
+          }
+        };
 
-export default Gallery;
+        export default Gallery;
