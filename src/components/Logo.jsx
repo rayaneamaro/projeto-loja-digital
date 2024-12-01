@@ -1,8 +1,8 @@
 import React from 'react';
-import LogoImage from '../assets/logo-header.svg';
+import LogoImage from '../assets/logo-header.svg'; // Importando diretamente da pasta assets
 
-const Logo = () => (
-  <img src={LogoImage} width={253} height={44} />
-);
+const Logo = () => {
+  return <img src={LogoImage} alt="Logo" width="253" height="44" />;
+};
 
 export default Logo;
