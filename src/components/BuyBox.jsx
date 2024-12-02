@@ -1,43 +1,51 @@
-    import React from 'react';
-    import { ReactComponent as StarIcon } from '../assets/star-icon.svg';
+// src/components/BuyBox.jsx
 
-    const BuyBox = ({ name, reference, stars, rating, price, priceDiscount, description, children }) => {
-      return (
-        <div style={{ width: '400px', padding: '20px', border: '1px solid #CCCCCC', borderRadius: '4px' }}>
-          <h1 style={{ fontSize: '32px', color: '#474747' }}>{name}</h1>
-          <p style={{ fontSize: '12px', color: '#8F8F8F' }}>Referência: {reference}</p>
+import React from 'react';
+import ProductOptions from './ProductOptions';
 
-          <div className="d-flex align-items-center gap-2 my-2">
-            <span
-              style={{
-                fontSize: '14px',
-                backgroundColor: '#F6AA1C',
-                color: '#FFFFFF',
-                borderRadius: '4px',
-                padding: '2px 6px',
-              }}
-            >
-              {stars} <StarIcon />
-            </span>
-            <span style={{ fontSize: '14px', color: '#CCCCCC' }}>{rating} avaliações</span>
-          </div>
+const BuyBox = ({ name, reference, stars, rating, price, priceDiscount, description, children }) => {
+  return (
+    <div className="buy-box">
+      <h2 className="text-dark-gray mb-2" style={{ fontSize: '32px' }}>{name}</h2>
+      <p className="text-dark-gray-3 mb-4" style={{ fontSize: '12px' }}>{reference}</p>
 
-          <p style={{ fontSize: '16px', color: '#CCCCCC', textDecoration: priceDiscount ? 'line-through' : 'none' }}>
-            R$ {price.toFixed(2)}
-          </p>
-          {priceDiscount && (
-            <p style={{ fontSize: '32px', color: '#474747', marginTop: '-10px' }}>R$ {priceDiscount.toFixed(2)}</p>
+      {/* Estrelas */}
+      <div className="stars mb-2" style={{ backgroundColor: '#F6AA1C', borderRadius: '4px', padding: '5px' }}>
+        <span className="text-white">{stars}</span>
+        <img src="/src/assets/star-icon.svg" alt="Star Icon" style={{ width: '14px', marginLeft: '5px' }} />
+      </div>
+
+      {/* Avaliações */}
+      <p className="text-light-gray mb-4" style={{ fontSize: '14px' }}>{rating} avaliações</p>
+
+      {/* Preços */}
+      <div className="prices mb-4">
+        <p className="text-dark-gray-2" style={{ fontSize: '32px' }}>
+          {priceDiscount ? (
+            <>
+              <span style={{ textDecoration: 'line-through', fontSize: '16px', color: '#D1D1D1' }}>
+                R$ {price}
+              </span>
+              <span> R$ {priceDiscount}</span>
+            </>
+          ) : (
+            `R$ ${price}`
           )}
+        </p>
+      </div>
 
-          <p style={{ fontSize: '14px', color: '#474747', marginTop: '10px' }}>{description}</p>
+      {/* Descrição */}
+      <p className="text-dark-gray-2 mb-4" style={{ fontSize: '14px' }}>{description}</p>
 
-          {children}
+      {/* Opções do produto */}
+      {children}
 
-          <button className="btn btn-warning mt-4 text-white" style={{ fontSize: '16px' }}>
-            Comprar
-          </button>
-        </div>
-      );
-    };
+      {/* Botão Comprar */}
+      <button className="btn btn-warning text-white mt-3" style={{ fontSize: '16px' }}>
+        COMPRAR
+      </button>
+    </div>
+  );
+};
 
-    export default BuyBox;
+export default BuyBox;
