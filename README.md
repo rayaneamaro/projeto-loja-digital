@@ -20,7 +20,6 @@ Página de listagem de produtos.
 Página de visualização do produto.
 Tecnologias Utilizadas
 React: Biblioteca para construir interfaces de usuário.
-TypeScript: Superset do JavaScript para adicionar tipagem estática.
 React Router: Biblioteca para gerenciar rotas na aplicação.
 Vite: Bundler de JavaScript para desenvolvimento rápido.
 SVG: Para imagens e ícones vetoriais escaláveis.
