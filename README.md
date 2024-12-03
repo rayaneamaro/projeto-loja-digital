@@ -23,5 +23,4 @@ React: Biblioteca para construir interfaces de usuário.
 TypeScript: Superset do JavaScript para adicionar tipagem estática.
 React Router: Biblioteca para gerenciar rotas na aplicação.
 Vite: Bundler de JavaScript para desenvolvimento rápido.
-Bootstrap: Framework de CSS para estilização.
 SVG: Para imagens e ícones vetoriais escaláveis.
