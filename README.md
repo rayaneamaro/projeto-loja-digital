@@ -35,5 +35,27 @@ Este projeto foi desenvolvido como parte de uma atividade de Front-end do curso 
 
 ## Estrutura do Projeto
 
-```plaintext ├── src/ │ ├── components/ │ │ ├── Header │ │ ├── Footer │ │ ├── Logo │ │ ├── ProductListing │ │ ├── ProductCard │ │ ├── ProductOptions │ │ ├── BuyBox │ │ ├── Section │ │ ├── FilterGroup │ │ └── ProductDetails │ └── pages/ │ ├── HomePage │ ├── ProductViewPage │ └── ProductListingPage ├── App.jsx ├── App.css ├── main.jsx └── index.css
+```
+├── src/
+│   ├── compoments/
+│   │   ├── Header
+│   │   ├── Footer
+│   │   ├── Logo
+│   │   ├── ProductListing
+│   │   ├── ProductCard
+│   │   ├── ProductOptions
+│   │   ├── BuyBox
+│   │   ├── Section
+│   │   ├── FilterGroup
+│   │   └── ProductDetails
+│   └── pages/
+│       ├── HomePage
+│       ├── ProductViewPage
+│       └── ProductListingPage
+├── App.css
+├── App.jsx
+├── main.jsx
+└── index.css
+
+```
 
