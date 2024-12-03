@@ -1,0 +1,294 @@
+body {
+  font-family: verdana, sans-serif;
+  background-color: #F5F5F5;
+  color: #1F1F1F;
+}
+
+
+
+.header {
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 20px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo {
+  flex: 1;
+}
+
+
+.search-bar {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-bar button {
+  background-color: #c92071;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+
+.header-actions {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.register-btn,
+.login-btn {
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.register-btn {
+  background-color: transparent;
+  color: #c92071;
+  border: 1px solid #c92071;
+}
+
+.login-btn {
+  background-color: #c92071;
+  color: white;
+}
+
+
+.cart-icon {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+
+.header-nav {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #666;
+  font-weight: bold;
+}
+
+.nav-link.active {
+  color: #c92071;
+  text-decoration: underline;
+}
+
+
+.bg-primary {
+  background-color: #ffffff;
+}
+
+.bg-dark-gray {
+  background-color: #1F1F1F;
+}
+
+.text-white {
+  color: #FFFFFF;
+}
+
+.section {
+  margin: 20px 0;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-card {
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+}
+
+.product-listing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gallery {
+  position: relative;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.gallery-thumbnails img {
+  cursor: pointer;
+  margin-right: 5px;
+  border: 1px solid transparent;
+}
+
+.gallery-thumbnails img:hover {
+  border: 1px solid #C92071;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  gap: 2rem;
+}
+
+.filter-group {
+  padding: 1rem;
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+
+.product-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-options .option {
+  cursor: pointer;
+  border: 1px solid #CCCCCC;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.product-options .option.selected {
+  border-color: #000000;
+}
+
+.product-options .square {
+  border-radius: 4px;
+}
+
+.product-options .circle {
+  border-radius: 50%;
+}
+
+
+.buy-box {
+  padding: 1rem;
+}
+
+
+
+.footer {
+  padding: 8px 8px;
+  background-color: #1f1f1f;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+
+.footer-logo-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-description {
+  margin-top: 8px;
+  color: #cccccc;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+
+.footer-social-icons {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  gap: 10px;
+  height: 100%; 
+}
+
+.footer-social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+
+.footer-info {
+  flex: 1;
+  min-width: 150px;
+}
+
+.footer-info h5 {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.footer-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-info ul li {
+  margin-bottom: 4px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #cccccc;
+  font-size: 12px;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+}
+
+
+.footer-bottom {
+  margin-top: 8px;
+  text-align: center;
+  border-top: 1px solid #474747;
+  padding-top: 8px;
+  color: #cccccc;
+  font-size: 12px;
+}
+
+
