@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import Logo from './Logo';
+import HeaderLogo from '../assets/logo-header.svg';
 import miniCartIcon from '../assets/mini-cart.svg';
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
     <header className="header">
       <div className="header-top">
         <div className="logo">
-          <Logo />
+          <img src={HeaderLogo} alt="Logo" width="253" height="44" />
         </div>
         <div className="search-bar">
           <input
@@ -64,6 +64,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
